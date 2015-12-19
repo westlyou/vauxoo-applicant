@@ -19,5 +19,4 @@ class PrimeClass(object):
                 cont = cont + 1
         if cont == 2:
             return True
-        else:
-            return False
+        return False
