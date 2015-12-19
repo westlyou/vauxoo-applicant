@@ -46,7 +46,28 @@ INSERT INTO employee_department_rel VALUES (3, 4);
 INSERT INTO employee_department_rel VALUES (4, 6);
 
 CREATE TABLE employee_hobby (
-    
+    id integer NOT NULL UNIQUE,
+    name varchar(80) NOT NULL,
+    description varchar(80)
 );
+
+CREATE TABLE employee_hobby_rel (
+    employee_id integer references employee(id),
+    hobby_id integer references employee_hobby(id)
+
+);
+
+INSERT INTO employee_hobby VALUES ('1', 'Leer', 'Leer historietas');
+INSERT INTO employee_hobby VALUES ('2', 'Hacer deporte', 'Correr 2 horas diarias');
+INSERT INTO employee_hobby VALUES ('3', 'Musica', 'Tocar piano');
+
+INSERT INTO employee_hobby_rel VALUES (1, 1);
+INSERT INTO employee_hobby_rel VALUES (1, 3);
+INSERT INTO employee_hobby_rel VALUES (2, 2);
+INSERT INTO employee_hobby_rel VALUES (2, 3);
+INSERT INTO employee_hobby_rel VALUES (3, 1);
+INSERT INTO employee_hobby_rel VALUES (3, 2);
+INSERT INTO employee_hobby_rel VALUES (4, 2);
+INSERT INTO employee_hobby_rel VALUES (4, 1);
 
 -- ...
