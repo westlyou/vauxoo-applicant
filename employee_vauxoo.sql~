@@ -3,23 +3,23 @@
 --       You can create database locally to test it.
 --       Consider add ';' at end sentence.
 
+CREATE TABLE employee (
+    id integer NOT NULL UNIQUE,
+    first_name varchar(80) NOT NULL,
+    last_name varchar(80) NOT NULL
+);
+
+ALTER TABLE employee ADD CONSTRAINT pekey PRIMARY KEY (id);
+
 CREATE TABLE employee_department (
-    id integer NOT NULL,
+    id integer NOT NULL UNIQUE,
     name varchar(80) NOT NULL,
-    description varchar(80)
-    
+    description varchar(80) 
 );
 
 ALTER TABLE employee_department ADD CONSTRAINT pkey PRIMARY KEY (id);
 
-CREATE TABLE employee (
-    id integer NOT NULL,
-    first_name varchar(80) NOT NULL,
-    last_name varchar(80) NOT NULL,
-    employee_department_id integer 
-);
-
-ALTER TABLE employee ADD CONSTRAINT pekey PRIMARY KEY (id);
+ALTER TABLE employee ADD employee_department_id integer;
 
 ALTER TABLE employee ADD CONSTRAINT FK_employee_department FOREIGN KEY (employee_department_id) REFERENCES employee_department(id);
 
