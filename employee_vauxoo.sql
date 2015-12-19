@@ -19,13 +19,11 @@ CREATE TABLE employee_department (
 
 ALTER TABLE employee_department ADD CONSTRAINT pkey PRIMARY KEY (id);
 
-CREATE TABLE employee_department_rel (
-    employee_id integer references employee(id),
-    department_id integer references employee_department(id)
+ALTER TABLE employee ADD employee_department_id integer,
 
-);
+ALTER TABLE employee ADD CONSTRAINT FK_employee_department FOREIGN KEY (employee_department_id) REFERENCES employee_department(id);
 
-ALTER TABLE employee_department_rel ADD CONSTRAINT Unique_employee UNIQUE (employee_id);
+ALTER TABLE employee ADD CONSTRAINT Unique_employee_department UNIQUE (id, employee_department_id);
 
 
 INSERT INTO employee_department VALUES ('1', 'Tecnologia', 'Departamento de tecnologia de la informacion');
