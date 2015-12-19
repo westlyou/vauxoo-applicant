@@ -19,7 +19,7 @@ CREATE TABLE employee_department (
 
 ALTER TABLE employee_department ADD CONSTRAINT pkey PRIMARY KEY (id);
 
-ALTER TABLE employee ADD employee_department_id integer,
+ALTER TABLE employee ADD employee_department_id integer;
 
 ALTER TABLE employee ADD CONSTRAINT FK_employee_department FOREIGN KEY (employee_department_id) REFERENCES employee_department(id);
 
