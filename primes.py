@@ -5,12 +5,19 @@ Your module documentation here
 
 class PrimeClass(object):
     """
-    Your class documentation here
+    Class to determinate if a number is prime
     """
-
-    def is_prime(self, num_int):
+    def is_prime(self, num):
         """
-        Your method documentation here
+        num : Number to evaluated
+        Function that calculate if a number is prime.
+        Return a boolean True if the number is prime.
         """
-        # your primes code here
-        return "not implement yet"  # Remove this dummy line
+        cont = 0
+        for ind in range(1, num + 1):
+            if num % ind == 0:
+                cont = cont + 1
+        if cont == 2:
+            return True
+        else:
+            return False

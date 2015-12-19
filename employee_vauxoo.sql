@@ -46,15 +46,6 @@ INSERT INTO employee_department_rel VALUES (3, 4);
 INSERT INTO employee_department_rel VALUES (4, 6);
 
 
-ALTER TABLE employee ADD boss_id integer references employee(id);
-ALTER TABLE employee ADD CONSTRAINT unique_rel_employee_boss CHECK (id<>boss_id);
-
-UPDATE employee set boss_id=1 where id=1;
-UPDATE employee set boss_id=2 where id=3;
-UPDATE employee set boss_id=3 where id=4;
-UPDATE employee set boss_id=4 where id=1;
-
-
 CREATE TABLE employee_hobby (
     id integer NOT NULL UNIQUE,
     name varchar(80) NOT NULL,
@@ -79,5 +70,13 @@ INSERT INTO employee_hobby_rel VALUES (3, 1);
 INSERT INTO employee_hobby_rel VALUES (3, 2);
 INSERT INTO employee_hobby_rel VALUES (4, 2);
 INSERT INTO employee_hobby_rel VALUES (4, 1);
+
+ALTER TABLE employee ADD boss_id integer references employee(id);
+ALTER TABLE employee ADD CONSTRAINT unique_rel_employee_boss CHECK (id<>boss_id);
+
+UPDATE employee set boss_id=1 where id=1;
+UPDATE employee set boss_id=2 where id=3;
+UPDATE employee set boss_id=3 where id=4;
+UPDATE employee set boss_id=4 where id=1;
 
 -- ...
