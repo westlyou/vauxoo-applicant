@@ -1,0 +1,30 @@
+-- Your sql code in this file
+-- NOTE: Please, don't add sentence to create database in this script file.
+--       You can create database locally to test it.
+--       Consider add ';' at end sentence.
+
+CREATE TABLE employee_department (
+    id integer NOT NULL,
+    name varchar(80) NOT NULL,
+    description varchar(80)
+    
+);
+
+ALTER TABLE employee_department ADD CONSTRAINT pkey PRIMARY KEY (id);
+
+CREATE TABLE employee (
+    id integer NOT NULL,
+    first_name varchar(80) NOT NULL,
+    last_name varchar(80) NOT NULL,
+    employee_department_id integer 
+);
+
+ALTER TABLE employee ADD CONSTRAINT pekey PRIMARY KEY (id);
+
+ALTER TABLE employee ADD CONSTRAINT FK_employee_department FOREIGN KEY (employee_department_id) REFERENCES employee_department(id);
+
+CREATE TABLE employee_hobby (
+    
+);
+
+-- ...
