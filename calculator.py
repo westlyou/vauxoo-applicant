@@ -5,12 +5,17 @@ Your module documentation here
 
 class CalculatorClass(object):
     """
-    Your class documentation here
+    Class to calculate the sum to elements of a list
     """
 
     def sum(self, num_list):
         """
-        Your method documentation here
+        num_list : List of number
+        Return the sum of the elements in the list
         """
-        # your sum code here
-        return "not implement yet"  # Remove this dummy line
+        if not isinstance(num_list, list):
+            num_list = [num_list]
+        sum_calc = 0
+        for count in num_list:
+            sum_calc = sum_calc + count
+        return sum_calc
